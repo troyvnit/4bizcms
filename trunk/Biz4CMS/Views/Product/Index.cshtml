@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Biz4CMS.ViewModels.BriefProductDto>
+@{ViewBag.Title = "Sản phẩm đồng phục Việt Anh: " + ViewBag.GalleryName;}
+<div>Trang chủ > sản phẩm</div>
+<div class="headline">     
+    <h1>
+        Sản phẩm: @ViewBag.GalleryName</h1>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 product">
+            @if (!string.IsNullOrEmpty(item.Avatar))
+            {
+                <a href="/Product/Details/?id=@item.ProductId">
+                    <img src="@Url.Content(item.Avatar)" class="img-thumbnail" alt="@item.Name "/></a>
+            }
+            <h4>
+                <a href="/Product/Details/?id=@item.ProductId">@item.Name</a>
+            </h4>
+            <p>@item.Description
+            </p>
+        </div>      
+    }
+</div>

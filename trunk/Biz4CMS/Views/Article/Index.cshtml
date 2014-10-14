@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Biz4CMS.ViewModels.BriefArticleDto>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6 article_box">
+            @if (item.Avatar != null)
+            {
+                <a href="/Article/Details/?id=@item.ArticleId">
+                    <img  class="article-thumbnail"    src="@Url.Content(item.Avatar) " alt="@item.Title" />
+                </a>
+                
+            }
+            <div class="headline">
+                <h3>@Html.ActionLink(item.Title, "Details", new { id = item.ArticleId })
+                </h3>
+            </div>
+            <p>@item.Description</p>
+        </div>   
+@* <div class="panel panel-primary">
+        
+        <div class="panel-heading">
+            <h2 class="panel-title">@Html.ActionLink(item.Title, "Details", new { id = item.ArticleId })
+            </h2>
+        </div>
+        <div class="panel-body">
+            @if (item.Avatar != null)
+            {
+                <div class="text-center margin-bottom-20">
+                    <img width="80%"   src="@Url.Content(item.Avatar) " alt="@item.Title" />
+                </div>
+            }
+            <p>@item.Description</p>
+        </div>
+    </div>*@
+    }
+</div>
+@if (ViewBag.TotalPage > 1)
+{
+    <div class="text-center">
+        <ul class="pagination">
+            @if (ViewBag.PageIndex > 1)
+            {
+                <li><a href='/article/?page=@(ViewBag.PageIndex - 1)@(ViewBag.CategoryID > 0 ? "&categoryid=" + ViewBag.CategoryID : "")'>
+                    &laquo;</a></li>
+            }
+            @for (var i = 1; i <= ViewBag.TotalPage; i++)
+            {
+                
+                <li class='@(ViewBag.PageIndex == i ? "active" : "")'><a href='/article/?page=@i@(ViewBag.CategoryID > 0 ? "&categoryid=" + ViewBag.CategoryID : "")' >@i</a>
+                </li>       
+            }
+            @if (ViewBag.PageIndex < ViewBag.TotalPage)
+            {
+                <li><a href='/article/?page=@(ViewBag.PageIndex + 1)@(ViewBag.CategoryID > 0 ? "&categoryid=" + ViewBag.CategoryID : "")'>
+                    &raquo;</a></li>
+            }
+        </ul>
+    </div>
+}

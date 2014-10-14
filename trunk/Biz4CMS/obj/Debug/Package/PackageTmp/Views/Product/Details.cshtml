@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title =  ViewBag.ProductName;
+    
+}
+@model IEnumerable<Biz4CMS.ViewModels.PictureDto>
+<link href="@Url.Content("/css/colorbox.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/js/jquery.colorbox.js")" type="text/javascript"></script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery('a.gallery').colorbox({ opacity: 0.5, rel: 'gallery', transition: "none", width: "60%" });
+    });
+</script>
+<div class="row">
+<div class="col-md-12">
+    Trang chủ > sản phẩm
+    <div class="headline">
+        <h1>
+            @ViewBag.ProductName</h1>
+    </div>
+    @Html.Raw(ViewBag.ProductDetails)
+    </div> 
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {         
+        <div class="col-md-4">
+            <a class='gallery' href='@Url.Content(@item.Image)' title="@ViewBag.ProductName - @item.Name" >
+                <img src="@Url.Content(@item.Thumbnail)" alt="@item.Name"  class="img-thumbnail"/></a>
+            <p>@item.Name
+            </p>
+        </div>
+    }
+</div>

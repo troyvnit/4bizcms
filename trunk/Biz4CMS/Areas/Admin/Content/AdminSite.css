@@ -1,0 +1,18 @@
+﻿ 
+.editor-label 
+{
+    clear:left; 
+    float:left;
+    width:130px;
+    display: inline-block;
+    }
+
+.editor-field 
+{
+    float:left;
+    width:630px;
+    margin-left :10px;    
+    display: inline-block;
+    }
+
+            
