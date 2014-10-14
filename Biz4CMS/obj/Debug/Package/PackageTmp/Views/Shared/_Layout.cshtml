@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - Cộng đồng web doanh nghiệp - 4biz.vn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+    <!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+    <!--script src="js/less-1.3.3.min.js"></script-->
+    <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+    <link href="@Url.Content("~/css/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/css/style.css")" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+    <!-- Fav and touch icons -->
+    <script type="text/javascript" src="@Url.Content("~/js/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/scripts.js")"></script>
+</head>
+<body>
+    <header><nav class="navbar navbar-default" role="navigation">
+				
+				<div class="navbar-header">
+                <button data-target=".navbar-responsive-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" >
+                    <img height="50px" class="logo" alt="" src="@Url.Content("~/img/logo.png")" id="logo-header">
+                </a>
+            </div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					 @{Html.RenderAction("TopMenu", "Home");}
+                 
+					
+				</div>
+				
+			</nav>
+			@RenderSection("Banner", required: false)
+			</header>
+    <div class="container">
+        @RenderSection("HeadLine", required: false)
+        <div class="row clearfix">
+            <div class="col-md-9 column">
+                @RenderBody()
+                <div>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Vietanh_home -->
+                    <ins class="adsbygoogle" style="display: inline-block; width: 728px; height: 90px"
+                        data-ad-client="ca-pub-3935141513322737" data-ad-slot="2509958404"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-3 column">
+                @{Html.RenderAction("RightMenu", "Home");}
+                @{Html.RenderAction("RightBanner", "Home");}
+                @{Html.RenderAction("RightQuickLink", "Home");}
+            </div>
+        </div>
+    </div>
+    <footer id="footer-outer">
+<div id="footer-widgets">
+		
+		<div class="container">
+			
+			<div class="row">
+				
+<div class="col-md-6">
+<!-- Footer widget area 1 -->
+<div class="widget widget_nav_menu textwidget">			
+<h4>Thông tin liên hệ</h4>
+                      
+<span class="glyphicon glyphicon-earphone"> </span> Mr Tri : 0986 111 680<br/><br/>
+<span class="glyphicon glyphicon-home"></span> 100A2 Quang Trung, P8, GV, Tp.HCM<br/>
+
+                
+                
+                
+            
+		</div>				
+		
+		</div>
+        <div class="col-md-6"><p> © 2014 4Biz.vn. All Right Reserved - <a href="http://www.4biz.vn"><span class="glyphicon glyphicon-globe"> </span> http://www.4biz.vn</a> - <a href="mailto:contact_us@4biz.vn"><span class="glyphicon glyphicon-send"> </span> contact_us@4biz.vn</a> </p>	</div>			
+			</div><!--/row-->
+			
+		</div><!--/container-->
+	
+	</div><!--/footer-widgets-->
+	
+</footer>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-55642208-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@*@model IEnumerable<Biz4CMS.ViewModels.BoxLinkDto>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+        <a href="@item.BoxLink">@item.BoxName</a>
+        @if (item.Links.Count > 0)
+        {
+
+            <ul>
+            @foreach (var lnk in item.Links)
+            {
+                @:<li><a href="@lnk.Link">@lnk.Name</a></li>
+            }
+            </ul>
+         
+        }
+        </li>
+    }
+</ul>*@
+@model IEnumerable<Biz4CMS.ViewModels.LinkDto>
+<ul class="nav navbar-nav" id="mainmenu">
+    @foreach (var lnk in Model)
+    {
+        @:<li><a href="@lnk.Link">@lnk.Title</a></li>
+    }
+</ul>

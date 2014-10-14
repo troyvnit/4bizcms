@@ -1,0 +1,33 @@
+﻿@model Biz4CMS.Models.Article
+@{
+    ViewBag.Title = Model.Title;
+}
+@if (Model.Avatar != null)
+{             
+    <div class="margin-bottom-30">
+        <img width="100%"   src="@Url.Content(Model.Avatar) " alt="@Model.Title" />
+    </div> 
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="headline">
+            <h1 class="panel-title">@Model.Title</h1>
+        </div>
+        @Html.Raw(Model.Content)
+    </div>
+    @if (ViewBag.RelatedArticles != null && ViewBag.RelatedArticles.Count > 0)
+    {
+        <div class="col-md-12">
+            <h3>
+                <u>Thông tin liên quan:</u></h3>
+            <div class="relatedarticle">
+                <ul>
+                    @foreach (var item in ViewBag.RelatedArticles)
+                    {
+                        <li><a href="@item.Link">@item.Title </a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>
