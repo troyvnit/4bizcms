@@ -16,6 +16,10 @@ namespace Biz4CMS.Controllers
             return View();
         }
 
+        public ActionResult SinglePageIndex()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {
